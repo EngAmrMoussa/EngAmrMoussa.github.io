@@ -5,229 +5,155 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AM - Infra | Automation Solutions for Autodesk Civil 3D</title>
 <meta name="description" content="AM - Infra builds infrastructure automation plugins for Civil 3D users, plus custom Civil 3D consulting for engineering teams.">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAP/SURBVFhH7Zf7T5NXGMf5F5bFxMRdftjIlGzTSZCN6YCxBUUYDl1FZkuwtawWqAOBSYBQmQyGEZAibOhU6GDTIbehwEClrdzacSu03EopULxg5X5rbb/LOYxmWbZZjIEfxjc5yXu+5z3v8znPec5JXrsPWJHu7zFPJjjuD131RuLaOTHCUmWdOgyMGla9yTqHYEdIRg3TWAvpDdNLAIRmLaQZNawDrAOsA9gGMHTvIUITz4MTl46bErnVNxpNiEy9CFb0GUQk5+Lspev47qcKqPp1eGI2W9+7cK0S/uHJCEk8j4mpGatvM0Da5WK85MbEa55sePMSaGCihUUjPIJi8LonG9v3h6KxTY2C8lvILihDtUyBxUUjHjwah9NnAtjv4WAHQ4CHhnHrd20CmJtfwB5uHLZ+yqdBtngH40bdUhYIgA8vAdsPLPmJ2YUYezyBxlYVJPJ2aIfvIVNchje8jtLg7oHRdHxZNgFU3GmmK9wXcgrHhCLY72aDGZ1Kx0ymJxTAwScYm7248OLGo6a+BR3dGnT1DUKmUMIj6CQcD4TBiSGA27MAcOMz8LI7C2lXiqEduY+3fY/BwTsYDW1qmM0WeHJiKVzy91dxt6ULvdphNLV309WLxGWw383B+wER2HHw+Moz0D0wjHf8QvDWJzy0qTXUOxqXgQ0u/jiRkgu5sgdFVVIoewbQqupDWW0DBKdz0NzRA6PJBNfDUXA++CWEIjHNwoozkJJ7Fa98GAh2bBrtGyamkF9Sg/zSWtS3dKGpXY1+nR4/V9Sh/FYjeEIRXnBmIONKCS5fr8YmVyaizlyERKHE5r3clQFMz8zhoyMxtLgiUnJRJVWgoVWFR+OTdLV9gyPQ6R8gKacQG949hF8qZbRPsuXiH4GdASfoVqk0Q3S7SCG6BX5lO0BxTT227OXS1G315eNmnRwWABJ5B8YeT6JfN4qPj8QgM78Ub3rzkFdaS+cJknLoPAefL8COTade9d3f/wQgGZi0xvhPgKCYs3QFLofC8UNRFfWa29UYuT9Gn/3Dv8EmNyYSssTgn8pCVkE59ZW9WhrsVY9ASORK6lVKFSsD6OwdxLZ9fHr2LxVVYXxyivpk34lm5+ZpEW7zC4ErKwqZ4lJaF8sie/5bfYu1XyldyoA7y8YaiPz2Al50ZsCXL4RGp0f/oJ76pAbIxWQ2m3HjThO9XDbu+hyc2HR67P5Nv95uwsadAXD0C3v6TUhut9PZhQj7OhvltxthsVjQpu6nY6TIerUj9Hl2fgHn8kpogcafy8P07Jz1G38XOcLHk3IgFP2IqZlZq/+PAE+ThVTic9IzATxPrQP8PwHIqVrWmgD8VVaANf03XP47JjSr3aSdOvwBqSUDntzEmDAAAAAASUVORK5CYII=">
 <style>
-  :root{
-    --bg:#0b1420;
-    --bg-panel:#101d2e;
-    --bg-panel-2:#0e1a29;
-    --line:#1c2e42;
-    --teal:#3fd0c9;
-    --teal-dim:#2a8f8a;
-    --text:#e7eef5;
-    --text-dim:#9db0c2;
-    --text-faint:#6b7f93;
-  }
-  *{box-sizing:border-box;}
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--text);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    line-height:1.55;
-  }
-  a{color:var(--teal);text-decoration:none;}
-  a:hover{text-decoration:underline;}
-  .wrap{max-width:920px;margin:0 auto;padding:0 24px;}
+:root{
+  --bg:#0a1119; --bg-alt:#0d1622; --panel:#111c29; --line:#1f2f42;
+  --cyan:#39c7d6; --cyan-dim:#1c6d78;
+  --text:#eef3f7; --text-dim:#a2b4c4; --text-faint:#6c8093;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;}
+a{color:var(--cyan);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px;}
+img{max-width:100%;display:block;}
 
-  header.hero{
-    position:relative;
-    overflow:hidden;
-    background:
-      radial-gradient(1100px 480px at 85% -10%, rgba(63,208,201,0.12), transparent 60%),
-      linear-gradient(160deg, #0c1826 0%, #0a1420 55%, #091320 100%);
-    border-bottom:1px solid var(--line);
-    padding:64px 0 56px;
-  }
-  header.hero svg.lines{
-    position:absolute;
-    top:0; right:-8%;
-    width:70%; height:100%;
-    opacity:0.5;
-    pointer-events:none;
-  }
-  .hero-inner{position:relative;z-index:1;}
-  .brand-row{display:flex;align-items:center;gap:16px;margin-bottom:22px;}
-  .mark{
-    width:56px;height:56px;flex:none;
-    border:1.5px solid var(--teal-dim);
-    border-radius:8px;
-    display:flex;align-items:center;justify-content:center;
-    font-weight:800;font-size:20px;letter-spacing:0.5px;
-    color:var(--teal);
-    background:rgba(63,208,201,0.06);
-  }
-  .brand-text .name{font-size:22px;font-weight:700;letter-spacing:0.5px;color:var(--text);}
-  .brand-text .sub{font-size:13px;color:var(--text-faint);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px;}
-  h1.tag{
-    font-size:clamp(26px,4vw,38px);
-    font-weight:700;
-    margin:18px 0 14px;
-    max-width:640px;
-    color:var(--text);
-  }
-  h1.tag em{color:var(--teal);font-style:normal;}
-  p.lede{
-    max-width:560px;
-    color:var(--text-dim);
-    font-size:16px;
-    margin:0 0 28px;
-  }
-  .cta-row{display:flex;gap:12px;flex-wrap:wrap;}
-  .btn{
-    display:inline-block;
-    padding:11px 22px;
-    border-radius:6px;
-    font-size:14px;
-    font-weight:600;
-    border:1px solid var(--teal-dim);
-  }
-  .btn.primary{background:var(--teal);color:#06211f;border-color:var(--teal);}
-  .btn.primary:hover{background:#5fe0da;text-decoration:none;}
-  .btn.ghost{color:var(--teal);background:transparent;}
-  .btn.ghost:hover{background:rgba(63,208,201,0.08);text-decoration:none;}
+header.nav{position:sticky;top:0;z-index:10;background:rgba(10,17,25,0.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);}
+.nav-wrap{max-width:960px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;}
+.brand{display:flex;align-items:center;gap:10px;color:var(--text);font-weight:700;font-size:16px;}
+.brand:hover{text-decoration:none;}
+.brand-logo{width:32px;height:32px;border-radius:6px;}
+.nav-links{display:flex;gap:22px;font-size:14px;}
+.nav-links a{color:var(--text-dim);font-weight:500;}
+.nav-links a:hover{color:var(--cyan);text-decoration:none;}
+.nav-links a.active{color:var(--cyan);}
 
-  section{padding:52px 0;border-bottom:1px solid var(--line);}
-  section:last-of-type{border-bottom:none;}
-  h2{
-    font-size:12px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    color:var(--text-faint);
-    margin:0 0 8px;
-  }
-  h3.section-title{
-    font-size:24px;
-    font-weight:700;
-    margin:0 0 26px;
-    color:var(--text);
-  }
+.page-header{padding:44px 0 8px;}
+.eyebrow{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--text-faint);margin:0 0 8px;}
+h1.page-title{font-size:clamp(26px,4vw,36px);font-weight:700;margin:0 0 10px;}
+p.page-sub{color:var(--text-dim);font-size:16px;max-width:640px;margin:0 0 8px;}
 
-  .product-card{
-    background:var(--bg-panel);
-    border:1px solid var(--line);
-    border-radius:10px;
-    padding:28px 30px;
-  }
-  .product-card .ph{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:6px;}
-  .product-card h4{font-size:19px;margin:0;color:var(--text);}
-  .badge{font-size:11px;color:var(--teal);border:1px solid var(--teal-dim);padding:3px 9px;border-radius:999px;letter-spacing:0.5px;}
-  .product-card p.desc{color:var(--text-dim);margin:8px 0 20px;font-size:15px;}
-  .feature-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:6px 24px;
-    margin:0 0 20px;
-    padding:0;
-    list-style:none;
-  }
-  .feature-grid li{
-    color:var(--text-dim);
-    font-size:14px;
-    padding:7px 0;
-    border-bottom:1px dashed var(--line);
-  }
-  .feature-grid li strong{color:var(--text);font-weight:600;}
-  .meta-row{display:flex;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--text-faint);margin-top:18px;}
-  .meta-row span strong{color:var(--text-dim);}
+.hero-banner{width:100%;border-radius:10px;border:1px solid var(--line);margin:20px 0 28px;}
+.lede{max-width:600px;color:var(--text-dim);font-size:16px;margin:0 0 26px;}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:8px;}
+.btn{display:inline-block;padding:11px 22px;border-radius:6px;font-size:14px;font-weight:600;border:1px solid var(--cyan-dim);}
+.btn.primary{background:var(--cyan);color:#04262a;border-color:var(--cyan);}
+.btn.primary:hover{background:#5edbe6;text-decoration:none;}
+.btn.ghost{color:var(--cyan);background:transparent;}
+.btn.ghost:hover{background:rgba(57,199,214,0.08);text-decoration:none;}
 
-  .consulting p{color:var(--text-dim);font-size:15px;max-width:640px;}
-  .consulting .tag-line{
-    display:inline-block;
-    font-size:12px;
-    color:var(--teal);
-    border:1px solid var(--teal-dim);
-    padding:4px 12px;
-    border-radius:999px;
-    margin-bottom:16px;
-  }
+section{padding:40px 0;border-bottom:1px solid var(--line);}
+section:last-of-type{border-bottom:none;}
+h2.section-title{font-size:22px;font-weight:700;margin:0 0 20px;}
 
-  .contact-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;}
-  .contact-item{color:var(--text-dim);font-size:15px;}
+.value-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;}
+.value-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px;}
+.value-card h3{font-size:15px;margin:0 0 8px;color:var(--text);}
+.value-card p{font-size:14px;color:var(--text-dim);margin:0;}
 
-  footer{padding:30px 0;color:var(--text-faint);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.teaser-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:24px 26px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;}
+.teaser-card h3{margin:0 0 6px;font-size:18px;}
+.teaser-card p{margin:0;color:var(--text-dim);font-size:14px;max-width:480px;}
+
+.product-hero{width:100%;border-radius:10px;border:1px solid var(--line);margin:18px 0 30px;}
+.badge{font-size:11px;color:var(--cyan);border:1px solid var(--cyan-dim);padding:3px 10px;border-radius:999px;letter-spacing:0.5px;margin-left:10px;vertical-align:middle;}
+
+.feature-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:4px 28px;}
+.feature-list li{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px dashed var(--line);}
+.feature-list img{width:22px;height:22px;flex:none;margin-top:2px;}
+.feature-list strong{display:block;color:var(--text);font-size:14.5px;}
+.feature-list span{color:var(--text-dim);font-size:13.5px;}
+
+.meta-row{display:flex;gap:24px;flex-wrap:wrap;font-size:13px;color:var(--text-faint);margin-top:10px;}
+.meta-row strong{color:var(--text-dim);}
+
+.shot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;}
+.shot-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+.shot-card img{width:100%;display:block;}
+.shot-card .cap{padding:10px 14px;font-size:13px;color:var(--text-dim);border-top:1px solid var(--line);}
+
+.tag-pill{display:inline-block;font-size:12px;color:var(--cyan);border:1px solid var(--cyan-dim);padding:4px 12px;border-radius:999px;margin-bottom:16px;}
+.body-text{color:var(--text-dim);font-size:15.5px;max-width:640px;}
+.body-text + .body-text{margin-top:10px;}
+
+.contact-row{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center;margin:20px 0;font-size:15px;color:var(--text-dim);}
+
+footer.site-footer{padding:26px 0;color:var(--text-faint);font-size:13px;}
+.foot-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+
 </style>
 </head>
 <body>
 
-<header class="hero">
-  <svg class="lines" viewBox="0 0 600 400" preserveAspectRatio="none">
-    <path d="M0,320 C120,280 180,340 260,300 C340,260 380,180 480,190 C540,196 570,150 600,120" fill="none" stroke="#3fd0c9" stroke-width="1.4" opacity="0.55"/>
-    <path d="M0,260 C100,240 160,300 240,250 C320,200 400,240 470,180 C520,140 560,120 600,80" fill="none" stroke="#3fd0c9" stroke-width="1" opacity="0.35"/>
-    <path d="M20,380 C140,360 200,300 300,320 C400,340 440,260 600,220" fill="none" stroke="#3fd0c9" stroke-width="1" opacity="0.3"/>
-    <circle cx="480" cy="190" r="3" fill="#3fd0c9" opacity="0.8"/>
-    <circle cx="260" cy="300" r="2.5" fill="#3fd0c9" opacity="0.6"/>
-    <circle cx="470" cy="180" r="2.5" fill="#3fd0c9" opacity="0.6"/>
-  </svg>
-  <div class="wrap hero-inner">
-    <div class="brand-row">
-      <div class="mark">AM</div>
-      <div class="brand-text">
-        <div class="name">AM - Infra</div>
-        <div class="sub">AM Infra Tools</div>
-      </div>
-    </div>
-    <h1 class="tag">Automation solutions for <em>Autodesk Civil 3D</em></h1>
-    <p class="lede">A tool family specialized in infrastructure automation plugins for Civil 3D users — built to save time on repetitive setup work so engineers can focus on the real engineering.</p>
-    <div class="cta-row">
-      <a class="btn primary" href="mailto:eng.amr.mo.moussa@gmail.com">Contact Us</a>
-      <a class="btn ghost" href="https://github.com/EngAmrMoussa" target="_blank" rel="noopener">View on GitHub</a>
-    </div>
+<header class="nav">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html"><img class="brand-logo" src="data:image/png;base64,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" alt="AM - Infra logo"><span>AM - Infra</span></a>
+    <nav class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="products.html">Products</a>
+      <a href="consulting.html">Consulting</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </div>
 </header>
 
 <main class="wrap">
+  <img class="hero-banner" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAA8KCw0LCQ8NDA0REA8RFiUYFhQUFi0gIhslNS84NzQvNDM7QlVIOz9QPzM0SmRLUFdaX2BfOUdob2dcblVdX1v/2wBDARARERYTFisYGCtbPTQ9W1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1v/wAARCABuAtADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDmiaM0lFWQLmikpaYBS0lKKACloooEFKKKUUALSikpaAFooooAWl+lGPXk0oBpgJ+QoPT/AOtS4AI9aXBbPpQITv8A/WpD/nilwO4AOKMj3x9KAE/KkJpxGenfvSYxQMbSGnY9KbSASmmnGkNACUhpaSkAlJS0hpjCiiikAlFFJQAUUUUAFFFJQAuaSiigAooooAKKccbR8pHv603NABmjNFJQAuaKSjtQAUUUlAC0lBqZIY3XiQ7sdAuefSgCHNG6nyQtGoL4yeMA5IqM0AKGx04pyv61HR0oAnpKh3UbgaAJGf0qFjk04mm+5oAKKAPzp+wj72B9aAGUVKkRYfKrt7gYFKI8HH7sH0LZP6UCuiLOKM1P5Z/vf98xml2eskn5f/XosHMivzR+FWNn/TST9P8AGjy/+mj/AKf40WDmRXoqx5f+2/6f40eV/tv+n+NOwcyK9FWPKP8Aff8AT/GjyT/ff8x/jRYOZFfNH41Z8l/77/p/jSNC/ct+Mf8AhRYOZFbmjmpfKJOBsJ9FbB/I00oVOCSh9GGKQ7jFBY4FIc075oznkZpCQfvdfWgBpoNK2QeaSgYlJS0UAC9amTp+NRouTn8qsRRFiEXrQIkjt5JUZkQkKMkgdKgdCexz9KuCd4EMaOcEYbB61AxPBJ60xK5XCN6fpSlSMcH8qnQbs8nimk89aQyA5PY4+lIcjqP0qYk+tRyt8n4igZYNFBooEFFFFMAp1IKWgApaSlFAhaUUlLQAtLSCloAKcBjj9aQfqaeB2pgAGKD+ZoHpT8bfcmgQ0DHY5NL6KKXGD15PXFOx04oAaEAPAwfWkxnI70/+LHtSbfmbrQAwjuPxFJTznPv396aRjkdDQA0imEVIaaRn6UDGdaQ040hpAMopTSUAIaSlpKQxKKKKAEpKWigBKKKKACig0lABRRRQAUUUUAOP3Pv5/wBn0plSJj+JAQDyak3KOkUY/DP86YiuT705Y5G6Ix+gNT+c46HA9gBSGRz1JP1NAXI/IkPVdv8AvHFWGiJhJDwAt8pUE5GAOelQ7val3Hb070C1G/Z5OxU/8DFKsDIQxkQEHPXP8qXdSbjQPUmkEZVFLGQAAkbdoB9Pegyt5Xlg7Y852DgZ9ahZjxx2pNx9KBWCc5QfWoD1qZ8lBx3qJh8xpDQ00UpBzRigYn1pMUtSLFxufgUARhSTgAk04IAcNy391f8AGpAC3yxggfzp4KxAheW74OMfU/0FMVxFhOcMdvqqcn8fT8aUeWn3MEj0G4/meBUbyFuDyOwxgfl/jUZJPXmgVr7kzS564P8AvEv/APWppmbpubHoDj+VRUlIdkPL56gfjk0m72X8hTc0Z9qBi7vZfyFG72X8hTc0ZoAdu9l/IUbvZfyFNzRmgB2/2H5Cjf7D8hTM0ZoAfv8A9lf++RSiTB4GPpkVFmjNAWLIuGIwWLD0bDD9acsiEY24H+xyP++TVTNKD70XFyosmMYLRkY77eR+I6ioWXHUBc9COVNCykEHnI6EHkVMJVYHcvXqyjr9RQGqK+TGTlQcjv0pMDtVjyVKkpKv+6TwfzpBASrZjbPYqciiwXRWNHep/s+PvEL/ALzAUfuIuf8AWEdugosO5JbQtLyo+UdWPAFWWligUpEN7d3Pf6CqEl3JIAOijoo4ApqynoeaYrN7ltyZMMQBkdqMlVAyQOajWYhQNo47+tIZ/wDZH60hkyMATuckfSoy5z1phlPZRUTTf7I/OgBztzTH+5+Ippk5+4PzNBcsuMAc5oGXKKKKBBS0lLTABS0lLQAtKKSlFAgp1JS0AKKUdfpSYoH169KAHr60vt3NIPpTkBPPr3piHKMcdTQqkfLnJ9fSnAdh0HWnqvA9TQAgXHA/Ol2knIBOPwoZ4oztklRO+GbFTKuVBUgg9Md/egCEqwz8ufXmm9GGc8+tTNLCknltKgfptJ5pWTjBHFMCAjPHQ9qYQRzj6j+tTsoCnccKOcntUQKSglJFcDupzSAjIzyOnpTetSbcHjpTGHOehoAYetNJx1p5BPU/lTDxjHWkMaxPYfnSHNOPQ0hoGNooooENopTSUhiUUUGgBKKKKAA0gopR1oASiiigA7UUv8JpKACkwP8AIpaSgA49f0owPX9KKUYPrQAmB6/pS4BGM/pRt9CKdIhjwPUcmgBhC9ifyowPX9KFBY4HWkoAVscc9vSk4x+NB7fSl7UAAwev5ilKHJI5HtTaOSc0AB60qIzngU/JX7/J/ukfzpyvIykDAUdcDApiuJhIvdh+lKELjfIdqjjJ/l/9anKiry3J6hen4n0/nTJJOevI6Hpj6Dt/OgW45nwNqgqvp3P19PpULNngdB+lISSaZnNIaQuaQ0p4470lAwopMjNGRnHegBcUhoJ9TRQAUUCkoAKKcEZlLBWIHUgZAptAxDRQaQnHWgBaKTcPUUUAFFFA5PFAC0BiDkUhyDgjBHrRQBKHyMDj27GkwDx0PoaizTw2RhqBDiQE24PufemMO/UHvTs+vI9fSj0xj+hoAiNKOOaeE3cDrTWBU7T2oGPR+P6U4sMdKgI9DSZPcmgB7ydhUdLRikArj5yKeVVDhslu4B6U5RiRiOoGaj289aYF2iiigQUtFFABSikpaYC0opKWgBaWkpaBC0oGQD69qTHHU0L0HPagB3O4D+fepU5AxUIwR1JxT1B7Hn+dMCYZUAcGpEYBdzDCgZPtUce7/wDVTNQbFrsLrGJDgseTj2HegRm7JNQnnlUfdUvj2HQVo6JMJIDCT80fK/7p/wDr1BYXtvagxQQzSs55PAz7YqKT/iW6qGXhM5x/snqP8+lUA3V8jUpefT+QrU0+5+12wLH94nD+/vVC7511SMMrMhHoRgUkwk0nUC0WDG4O0HoR6fgaAJNZucYtkPu/9BTdIGYZv94fyptrA0ltc3k3zEo23Pc9zTtI/wBTN/vD+VIC23XrTCBmnMPmHJ6etRkc5yaQDSe3U0w5wfrTiMZ5NNPQ8mkMRulIaCM9zSGgYlFFFAhDSUppKQwpKWkoASiij8aADFA60YPofyoHynO3PsRQAmKMf5xRx60UALj5CdwznpSYNHNFABRxRn6/jSg+4oATn0xRgnuT7CnDHtQXOMKKADaF68U4ESEKuVwOtR/XGacN2xmzxjHFMBWDdFxt9uDTMDvkfWgMR0p3mZ4ZQaQDcemDSYOf8ak2IejY9jQyFB84P0H+eKAIwuc+3UnoKdkL93r69/8A61Jktj26AdBVlIhF80gBfGQhOMD1b0Ht1NMTdiOK33APKSqHoB1b6VKz4Hy7Qo6Y5A+nqffpTZHzlpOcjp0JH9B7VBI5Y8//AFhQTa+46SYsAuBgVGoDtgHB96YTSxtskVsZwc0irC4UdGzSEbQMHOe/pSHqcdKUnCj1oGNo5PQZPYUGrmjtbJqtvJePtgjbe3Gc45A/E4oA1tRghOnXOmoiCfTIo5S4UbmP/LQE98bh+VJo0MNx4ektXjQy3Vw0cTkchwgZQD7kY/GobHxAzaoJLyC1WGdmWd0gAfa3B5HNVhdx22kJDBNmeG/MsZAPKhcBvzFIZf8ACkMaB5p4ldrktBErqDjahZj/AOgj8a5v/ln+FdFHrNrLrttOqG1tIkk+VucO4YsePUkVzpB2Y74oA6HUNPW+8S29mhWESW0Z3BRgHy85x+FUG0+1ksLmezu3lktQrSK8W1WUnGVOc9fWtD+0rT/hKba788eQluqM+DwRFtI/Os3TbiKDT9Tilfa88CpGMfeIcHH5UAaV/PDaeHrBbS9u4xJFIQioFWU7sHfz+HeqeqaXaaa/kves9wdjBVi+VUIByTnr7CodQuYZtJ0yGN90kEciyLj7pL5H6VZvr6yl8Ux3bjz7MNEXGOoCgHg+4oAiOnWc9nczWN1M72yeYyzQhA65wSpBPr0NUbW6ls5hNCVDgEfMgYc+xGK3nv18rUo7jWluBcwssKIG2LyCMjACnAwAK5ugDodW1O5j0/TTGIQ11alpcQJljuI9OOPSq/8AY1ml4mnTag6X7YUgRZiRyOFLZz7ZxVfUrqKWz0pYXDPbW+1xj7rbycVemk0y61oau98scTOs0luUbzQwwSo4wckdc0AULfTEENzPqEzW8NvJ5JCJvd5P7oGQO3WporFLe/0u6tZWntbi4UKzLtZWVhlWHr0pwvoNStL22uZVtZJrr7VE7glMnIKnHI470kl5bWkemWkM4nS1uPtE0qKQpJI4XPJAAoAWXT1vNV1eeaR44bWV3fy03ucuQMD+tZl2lski/ZJ3ljIyfMj2Mp9OpB/CtORoxrl3cWmsx27O5kimUOFYMSSpIGQR9MVDrtzBcNbbJI57lIyLieJNiyNnjjAyQO+OaAMuiikoAeGI6U4YPTr3FRUoNMCUNz7/AK0xuOvIPcUobPX86X69/wBaBDNuenNJinFM/d6+n+FJuI4Iz9aBiYqSAL5q7+meaZuX0IoyP736UAXLjy0kYqAQyH8Kqdae5HlL8w56/hTBt/vChiSLZooooAKWkpRQAUtJS0wFpaQUUALS9qSlyKBDl6c0o6Z4poPpSgevNADg3tx707bntn1z3pBSrxx27UxEkRAbrjNV57KS4uxJJIvl5ACgnO30qU+wyO4pQ56ZyD0PrQBaQhQAgVR0AAqDULU3cabNokQ9T6U4N68U7f3NMCqtjJi3Lsm+BuoJ5XOcfUVauY4rlQkoJUHIwcEGk3k03dkZPAFACygG2aCPAGwqB2FVrO3e2jkV2UliCNtTjPemk80gEJwefzppNKTTTQA00004mmE0hgaaaU05NpJDfhQBHRSsCDzTTQAUmaMEninBQBkkf0/+vSGMAJ6dKeI+Mk8epOBUixyONygBR/G/AH0preSpyzNK3twKYriAxL1bP+4uf1NO3wkcGYe7H/CmGUfwwoPrzSeaf7kf/fNArEmxm5jzJ/uOc/l1qPeM9ZAf97NAkXugH+6cVL5yycS/P/v8N/31/jQGqItzHpJn/eFNLf3kU/Tj+VTNbg8xOcn+FuD+HY1EQynDLnHXIoGmhMKe5X68ijY2OPmHtzSny2A25Q988g0hR1G7GR/eU5oGNopfMz97DfX/ABpfkPXcv6ikA38P0oAyeBTtgP3XU/pQUfGMcfWmAnA6c++KehDkKQAcYz60zYfb+dGwjrx9eKAEIIOD1FKBxnt6npTndNoONze4NOSJnXzJW2p2J7/QUCuR7gPu9f7x6/8A1qWIO7hUzk08gSsEhTCjkse/ualQYGyDPI5foWHt6D3osJsXasTfIA0g4LAZCn2Hc/oKjkbYcdWznrnB9Se5pJZRENkZycY3D+Q9qrkk0MSQrMSepJ9aOG46H9DTc0lIssCVPL2FB+NQjAG4gewq3FbmW2LBCW67qpseTmmJO4pJPf8ASmsSTk0tB96QxtKiF3VB1Y4FBGKFYowKkgjuKAJfssnneXleuNxOB25/UU0W0jYxt5/2hxSCeUADeeMdfbH+Ao8+XAG7AHoBQA4WspYjA4xk545OKQ20nbB/Hr16evSk+0TYx5hxSefLz8559v8APqaAHfZmEojdlUkE5znp2+vFH2Z8EkgAAn379u2cGmea+4MTkjPUA9eaU3Ex6uTnOff/ADk0DFFs+CTgYOMZ57/4GgWsx7L/AN9Dr6fXmkNxMxyXP5D/AD3P50nnynHznigBy27eaqOyrld2c54xmmtbyIrM20BevzD8vrTDK528/dBUYGMA9aV5pHBDNkHrxQA9raQLGw53jP05A/qPzoNrL2CngHg+2cfWkF1OpyJD688/56Cm+fLjG84xigCRrOUDI2tgZOGHHJ4/Q02W2eKNnbGFbacevH+P6U1p5GB3NkHqMD/Pc0NPKylWfKntgY/zxSAcbc5ZVbc6AbgB0pJIGjj3McYIBH5/4Un2iXIO/kY5wM8dKRppGXaWJGc/jyf6mgCX7I2AQ4O7G3g85BP4dKrDpmpftE2CN+AeMAAfl6dT+dRUAFKOtJS0AH05pwbHuPSmYNKc5pgSj5unPtRwR82D9Tz+B/xqMZzTyQVy2N3rmgQ1o1HR+P8AaGDSbB/fH604Abein/gVHy/3V/76oAkkjTyEIcZqHYv98U47f7q/nScei/nQBcNJRRQAUtJS0ALRSUtMBaKSloEKKWkooAcKWm0oNADgead1pg9Kdn86YDlbt3oPHI5z1HrTeo6n60qfKBnr60CJFOOck+lLnJqMcZAo3Aj0UUASZz7KKQ8kZ49Kbknk/lRn5h9KAHFqYT+tBOfpSZ70ABNNNKaaTQMDTaDSGkAho6Gg0BeMk8etAwYggDGD6+tJgDr+VOUMx2oDmnHy4fvfO/8AdHQUCBI2cZGFQdSeg/xoMscZ/dr5j/326flUUkjyH5jwOgHQU3FAWvuLJI8hy7Emmc07FGKQxuKMfhSsecCm/hQAuPejmk6e1AP+elADlYr349D0qYThgA4yB69voagyPpR9KYrE7RK33T+Hf/A1H5bqcoTkenUU0MRx+hqUS5xu6joT/jQLVEZfP31De/Q0bYz0cr7MP8KmO1vvAH3PB/Poaa0KfwybT6OMfr0oC5H5TH7pVvo1HlSjoj/hTjbSgZEZYeq8/wAqZsdeqH8RQO44QzNnhuP7xxTooB5gDyIM9gcn9KRRIchYs5GOFq3aWLMpeRvLIOfm9KaRMpJLUqCRI/8AVpub+8/+FOCPJ+9nYhP7x7+wqRkgjcCEGVuxbhf8TUjqIf3l5Jlu0Y6//Yj9aLCuSRwpLCAilIywBJ9ff/Cq0s8JBjidlyeWPOfrUU97NN+7T5E6BF4FVsAHAORQ2Ci+pLLA6fMeVPQiozxUsMpjBB5XuDT3gWRd0Bz6qeo/xpF3tuV6OBSHK9qQHHJpDLCXUiKI0ycjkZpn+syPkDdttQFycgcA/rSc0XFYlIKnniiiOfHDjINP2KwzG2B6dv8A61AX7jKQinEFTggg0nWgYlJg0uCPakOT1NABRRRQAlJS0lAwpKWmFvSgB1FIivIcL+J6AU7ym/vH8qLCuJSU7yyP4v0pNv8AtfpQMSijHvSgA9TSASkqfy49hO/n0qA0BcKKKcvQ9O/egBtFSCF8cY/Ok8uReqkUAMHWg9TS856j86DnJ+YfnQAh60p+6KU5z1H50fOwAGT9KYAPun60mTTtkmPut+VHlOOuB9TSAbk0lBBBwSKTvQBfopcUbaYhKWjaaULQAlLRtowaAClo2mlANMBKWjBo20ALRRg0uDQIKUe/50mDS7aAFzTs03BowaAFOAOuKPc/gKTGT+NAyTQAuT1zSd8k0EEUu00AFGaMGkINACE0hNBGBSYJoATNJTsUqxlj1FADKeIwozIcD070rHy+EHPqaiOSck0AOeY42oNq+3eoqcVoxQMbSil2+9LtpANo/nmlC+nFDfL06mgCM9T9aUCjb2p4XtQAxlzyKZUrHacDrUbAnnPNACUvSmc+tKOTigB2fWjnsaAKUDmgAV2X7p/CpFmHRlx/u8fpUZWkHXB60xWLKCJjkOFP0x/KplST+G4P/fxqoBfzoOR3ouJxL5ifHz3XHu7GmFrWLl5i59EGP1NUQzDnNCoHOMkE07i5Sy+obci2jEWf4urH8aqjc7bmyfrTvK2N82CRSsSeOKRSSQ3gDA6nqaMfhSHOcUc0hik9qWPdnKnGOppdoUZYZ4zimlyeoGB0HagC2DbtExlI3djz6f41Rk44oLMTmm7jjB5B7UXElYbRTmXGPQ9Keq4GfWgojpVYqcqcGnlAaYVxQBOk25cELx2I4/8ArUhwe22ol45qQZx7UCsByPcU0gduPY08g8EGkxuB9uooAYcjrSdaf7cEeho2ZUsOg7GgBlIWC9fyoc7R71Hgk+5pDDJc4/QVJHFuPLAAdaRVySoOFUZY9zihnJG0ABfQUwHSFWG1WUKPY81HtX+8PyNGKMUBsAUeoqRI0PVwKjxSgUgHSIq/dbNMpcUYoASijFGKACnJ0PI+mKbinxjg8mgCQP8ALSrIR0JH0qPYcdaAh9aYiXzSepz9eaQspPKqfqKjCH1pdh9aAHkpn7i0pkO0AHA9BwKj2H1o2H1oAcXOOtMJoKHHWkKn1oAYetJTitJikM//2Q==" alt="AM Infra Tools — Automation Solutions for Autodesk Civil 3D">
 
-  <section id="products">
-    <h2>Products</h2>
-    <h3 class="section-title">AM Infra Batch Tool</h3>
-    <div class="product-card">
-      <div class="ph">
-        <h4>Civil 3D Batch Automation Add-in</h4>
-        <span class="badge">v1.0.0</span>
+  <p class="lede">AM - Infra is a tool family specialized in infrastructure automation plugins for Civil 3D users — built to save time on repetitive setup work so engineers can focus on the real engineering.</p>
+  <div class="cta-row">
+    <a class="btn primary" href="products.html">Explore Products</a>
+    <a class="btn ghost" href="contact.html">Get in Touch</a>
+  </div>
+
+  <section>
+    <h2 class="section-title">Why AM - Infra</h2>
+    <div class="value-grid">
+      <div class="value-card">
+        <h3>Real batch operations</h3>
+        <p>Pick your inputs once, apply them across everything at once — instead of repeating the same setup one alignment, profile, or pipe at a time.</p>
       </div>
-      <p class="desc">Replaces repetitive, one-at-a-time Civil 3D workflows with real batch operations — pick your inputs once, apply them across everything at once, and get back to the actual engineering.</p>
-      <ul class="feature-grid">
-        <li><strong>Batch Alignments</strong> — create alignments from multiple selected entities in one pass</li>
-        <li><strong>Batch Profile Views</strong> — build profile views with sampled surfaces across many alignments at once</li>
-        <li><strong>Batch Add Surface Profiles</strong> — add surface profiles to existing profile views in bulk</li>
-        <li><strong>Batch Pipe Runs</strong> — build pressure-network pipe runs along selected polylines, sized from a real part list</li>
-        <li><strong>Batch Crossing Pipes</strong> — detect gravity/pressure pipes crossing a profile view's alignment, draw them in, and apply style overrides automatically</li>
-        <li><strong>Gravity Alignments</strong> — auto-generate a Main alignment plus Branch alignments for every side path from a gravity network's topology</li>
-        <li><strong>Gravity Profile Views</strong> — generate a profile view for every Main/Branch alignment, with matching pipes and structures bound in automatically</li>
-        <li><strong>Rainbow Plan</strong> — draw color-coded utility offset polylines on each side of an alignment centerline, one per network per side</li>
-        <li><strong>Zoom to Profile View</strong> — jump straight to the profile view(s) already showing a selected pipe run, fitting, or structure</li>
-      </ul>
-      <div class="meta-row">
-        <span><strong>Compatibility:</strong> Civil 3D 2025 through 2027</span>
-        <span><strong>Who it's for:</strong> Civil/Infrastructure engineers and designers running gravity or pressure pipe networks</span>
+      <div class="value-card">
+        <h3>Production-grade automation</h3>
+        <p>Every call is verified against real Civil 3D API metadata — not guesswork — so the tools behave predictably on real production drawings.</p>
+      </div>
+      <div class="value-card">
+        <h3>Built by infrastructure engineers</h3>
+        <p>Designed around actual gravity and pressure pipe network workflows, for engineers who are tired of repeating the same steps view-by-view.</p>
       </div>
     </div>
   </section>
 
-  <section id="consulting" class="consulting">
-    <h2>Consulting</h2>
-    <h3 class="section-title">Application Development</h3>
-    <span class="tag-line">Custom Civil 3D Automation</span>
-    <p>We also offer custom consulting for infrastructure engineering teams: workflow audits and bespoke Civil 3D automation plugins built around your firm's specific standards — not generic tools, but the same production-grade automation approach behind everything we publish.</p>
-  </section>
-
-  <section id="contact">
-    <h2>Get in touch</h2>
-    <h3 class="section-title">Contact</h3>
-    <div class="contact-row">
-      <span class="contact-item">📧 <a href="mailto:eng.amr.mo.moussa@gmail.com">eng.amr.mo.moussa@gmail.com</a></span>
-      <span class="contact-item">💻 <a href="https://github.com/EngAmrMoussa" target="_blank" rel="noopener">github.com/EngAmrMoussa</a></span>
+  <section>
+    <h2 class="section-title">Featured Product</h2>
+    <div class="teaser-card">
+      <div>
+        <h3>AM Infra Batch Tool</h3>
+        <p>A Civil 3D batch automation add-in covering alignments, profile views, surface profiles, pressure pipe runs, crossing pipes, gravity networks, and more.</p>
+      </div>
+      <a class="btn ghost" href="products.html">See full feature list →</a>
     </div>
   </section>
 
+  <section>
+    <h2 class="section-title">Consulting</h2>
+    <div class="teaser-card">
+      <div>
+        <h3>Application Development</h3>
+        <p>Custom consulting for infrastructure engineering teams — workflow audits and bespoke Civil 3D automation plugins built around your firm's standards.</p>
+      </div>
+      <a class="btn ghost" href="consulting.html">Learn more →</a>
+    </div>
+  </section>
 </main>
 
-<div class="wrap">
-  <footer>
-    <span>© 2026 AM - Infra. All rights reserved.</span>
-    <span>Amr Moussa</span>
-  </footer>
-</div>
+<footer class="site-footer">
+  <div class="wrap foot-row">
+    <span>&copy; 2026 AM - Infra. All rights reserved.</span>
+    <span>Amr Moussa &middot; <a href="mailto:eng.amr.mo.moussa@gmail.com">eng.amr.mo.moussa@gmail.com</a></span>
+  </div>
+</footer>
 
 </body>
 </html>
