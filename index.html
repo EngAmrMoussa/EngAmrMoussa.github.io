@@ -1,1 +1,233 @@
-PLACEHOLDER
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AM - Infra | Automation Solutions for Autodesk Civil 3D</title>
+<meta name="description" content="AM - Infra builds infrastructure automation plugins for Civil 3D users, plus custom Civil 3D consulting for engineering teams.">
+<style>
+  :root{
+    --bg:#0b1420;
+    --bg-panel:#101d2e;
+    --bg-panel-2:#0e1a29;
+    --line:#1c2e42;
+    --teal:#3fd0c9;
+    --teal-dim:#2a8f8a;
+    --text:#e7eef5;
+    --text-dim:#9db0c2;
+    --text-faint:#6b7f93;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55;
+  }
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px;}
+
+  header.hero{
+    position:relative;
+    overflow:hidden;
+    background:
+      radial-gradient(1100px 480px at 85% -10%, rgba(63,208,201,0.12), transparent 60%),
+      linear-gradient(160deg, #0c1826 0%, #0a1420 55%, #091320 100%);
+    border-bottom:1px solid var(--line);
+    padding:64px 0 56px;
+  }
+  header.hero svg.lines{
+    position:absolute;
+    top:0; right:-8%;
+    width:70%; height:100%;
+    opacity:0.5;
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;z-index:1;}
+  .brand-row{display:flex;align-items:center;gap:16px;margin-bottom:22px;}
+  .mark{
+    width:56px;height:56px;flex:none;
+    border:1.5px solid var(--teal-dim);
+    border-radius:8px;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:20px;letter-spacing:0.5px;
+    color:var(--teal);
+    background:rgba(63,208,201,0.06);
+  }
+  .brand-text .name{font-size:22px;font-weight:700;letter-spacing:0.5px;color:var(--text);}
+  .brand-text .sub{font-size:13px;color:var(--text-faint);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px;}
+  h1.tag{
+    font-size:clamp(26px,4vw,38px);
+    font-weight:700;
+    margin:18px 0 14px;
+    max-width:640px;
+    color:var(--text);
+  }
+  h1.tag em{color:var(--teal);font-style:normal;}
+  p.lede{
+    max-width:560px;
+    color:var(--text-dim);
+    font-size:16px;
+    margin:0 0 28px;
+  }
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;
+    padding:11px 22px;
+    border-radius:6px;
+    font-size:14px;
+    font-weight:600;
+    border:1px solid var(--teal-dim);
+  }
+  .btn.primary{background:var(--teal);color:#06211f;border-color:var(--teal);}
+  .btn.primary:hover{background:#5fe0da;text-decoration:none;}
+  .btn.ghost{color:var(--teal);background:transparent;}
+  .btn.ghost:hover{background:rgba(63,208,201,0.08);text-decoration:none;}
+
+  section{padding:52px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  h2{
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--text-faint);
+    margin:0 0 8px;
+  }
+  h3.section-title{
+    font-size:24px;
+    font-weight:700;
+    margin:0 0 26px;
+    color:var(--text);
+  }
+
+  .product-card{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:28px 30px;
+  }
+  .product-card .ph{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:6px;}
+  .product-card h4{font-size:19px;margin:0;color:var(--text);}
+  .badge{font-size:11px;color:var(--teal);border:1px solid var(--teal-dim);padding:3px 9px;border-radius:999px;letter-spacing:0.5px;}
+  .product-card p.desc{color:var(--text-dim);margin:8px 0 20px;font-size:15px;}
+  .feature-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:6px 24px;
+    margin:0 0 20px;
+    padding:0;
+    list-style:none;
+  }
+  .feature-grid li{
+    color:var(--text-dim);
+    font-size:14px;
+    padding:7px 0;
+    border-bottom:1px dashed var(--line);
+  }
+  .feature-grid li strong{color:var(--text);font-weight:600;}
+  .meta-row{display:flex;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--text-faint);margin-top:18px;}
+  .meta-row span strong{color:var(--text-dim);}
+
+  .consulting p{color:var(--text-dim);font-size:15px;max-width:640px;}
+  .consulting .tag-line{
+    display:inline-block;
+    font-size:12px;
+    color:var(--teal);
+    border:1px solid var(--teal-dim);
+    padding:4px 12px;
+    border-radius:999px;
+    margin-bottom:16px;
+  }
+
+  .contact-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;}
+  .contact-item{color:var(--text-dim);font-size:15px;}
+
+  footer{padding:30px 0;color:var(--text-faint);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="lines" viewBox="0 0 600 400" preserveAspectRatio="none">
+    <path d="M0,320 C120,280 180,340 260,300 C340,260 380,180 480,190 C540,196 570,150 600,120" fill="none" stroke="#3fd0c9" stroke-width="1.4" opacity="0.55"/>
+    <path d="M0,260 C100,240 160,300 240,250 C320,200 400,240 470,180 C520,140 560,120 600,80" fill="none" stroke="#3fd0c9" stroke-width="1" opacity="0.35"/>
+    <path d="M20,380 C140,360 200,300 300,320 C400,340 440,260 600,220" fill="none" stroke="#3fd0c9" stroke-width="1" opacity="0.3"/>
+    <circle cx="480" cy="190" r="3" fill="#3fd0c9" opacity="0.8"/>
+    <circle cx="260" cy="300" r="2.5" fill="#3fd0c9" opacity="0.6"/>
+    <circle cx="470" cy="180" r="2.5" fill="#3fd0c9" opacity="0.6"/>
+  </svg>
+  <div class="wrap hero-inner">
+    <div class="brand-row">
+      <div class="mark">AM</div>
+      <div class="brand-text">
+        <div class="name">AM - Infra</div>
+        <div class="sub">AM Infra Tools</div>
+      </div>
+    </div>
+    <h1 class="tag">Automation solutions for <em>Autodesk Civil 3D</em></h1>
+    <p class="lede">A tool family specialized in infrastructure automation plugins for Civil 3D users — built to save time on repetitive setup work so engineers can focus on the real engineering.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="mailto:eng.amr.mo.moussa@gmail.com">Contact Us</a>
+      <a class="btn ghost" href="https://github.com/EngAmrMoussa" target="_blank" rel="noopener">View on GitHub</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="products">
+    <h2>Products</h2>
+    <h3 class="section-title">AM Infra Batch Tool</h3>
+    <div class="product-card">
+      <div class="ph">
+        <h4>Civil 3D Batch Automation Add-in</h4>
+        <span class="badge">v1.0.0</span>
+      </div>
+      <p class="desc">Replaces repetitive, one-at-a-time Civil 3D workflows with real batch operations — pick your inputs once, apply them across everything at once, and get back to the actual engineering.</p>
+      <ul class="feature-grid">
+        <li><strong>Batch Alignments</strong> — create alignments from multiple selected entities in one pass</li>
+        <li><strong>Batch Profile Views</strong> — build profile views with sampled surfaces across many alignments at once</li>
+        <li><strong>Batch Add Surface Profiles</strong> — add surface profiles to existing profile views in bulk</li>
+        <li><strong>Batch Pipe Runs</strong> — build pressure-network pipe runs along selected polylines, sized from a real part list</li>
+        <li><strong>Batch Crossing Pipes</strong> — detect gravity/pressure pipes crossing a profile view's alignment, draw them in, and apply style overrides automatically</li>
+        <li><strong>Gravity Alignments</strong> — auto-generate a Main alignment plus Branch alignments for every side path from a gravity network's topology</li>
+        <li><strong>Gravity Profile Views</strong> — generate a profile view for every Main/Branch alignment, with matching pipes and structures bound in automatically</li>
+        <li><strong>Rainbow Plan</strong> — draw color-coded utility offset polylines on each side of an alignment centerline, one per network per side</li>
+        <li><strong>Zoom to Profile View</strong> — jump straight to the profile view(s) already showing a selected pipe run, fitting, or structure</li>
+      </ul>
+      <div class="meta-row">
+        <span><strong>Compatibility:</strong> Civil 3D 2025 through 2027</span>
+        <span><strong>Who it's for:</strong> Civil/Infrastructure engineers and designers running gravity or pressure pipe networks</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="consulting" class="consulting">
+    <h2>Consulting</h2>
+    <h3 class="section-title">Application Development</h3>
+    <span class="tag-line">Custom Civil 3D Automation</span>
+    <p>We also offer custom consulting for infrastructure engineering teams: workflow audits and bespoke Civil 3D automation plugins built around your firm's specific standards — not generic tools, but the same production-grade automation approach behind everything we publish.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Get in touch</h2>
+    <h3 class="section-title">Contact</h3>
+    <div class="contact-row">
+      <span class="contact-item">📧 <a href="mailto:eng.amr.mo.moussa@gmail.com">eng.amr.mo.moussa@gmail.com</a></span>
+      <span class="contact-item">💻 <a href="https://github.com/EngAmrMoussa" target="_blank" rel="noopener">github.com/EngAmrMoussa</a></span>
+    </div>
+  </section>
+
+</main>
+
+<div class="wrap">
+  <footer>
+    <span>© 2026 AM - Infra. All rights reserved.</span>
+    <span>Amr Moussa</span>
+  </footer>
+</div>
+
+</body>
+</html>
