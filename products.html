@@ -56,7 +56,7 @@ h2.section-title{font-size:22px;font-weight:700;margin:0 0 20px;}
 
 .shot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;}
 .shot-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
-.shot-card img{width:100%;display:block;}
+.shot-card img{width:100%;display:block;min-height:120px;background:var(--bg-alt);}
 .shot-card .cap{padding:10px 14px;font-size:13px;color:var(--text-dim);border-top:1px solid var(--line);}
 
 .body-text{color:var(--text-dim);font-size:15.5px;max-width:640px;}
@@ -107,7 +107,7 @@ footer.site-footer{padding:26px 0;color:var(--text-faint);font-size:13px;}
         <div><strong>Batch Pipe Runs</strong><span>Build pressure-network pipe runs along selected polylines, sized from a real part list.</span></div>
       </li>
       <li>
-        <img src="data:image/png;base64,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" alt="">
+        <img src="data:image/png;base64,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" alt="">
         <div><strong>Batch Crossing Pipes</strong><span>Detect gravity/pressure pipes crossing a profile view's alignment, draw them in, and apply style overrides automatically.</span></div>
       </li>
       <li>
@@ -137,9 +137,11 @@ footer.site-footer{padding:26px 0;color:var(--text-faint);font-size:13px;}
     <h2 class="section-title">See it in action</h2>
     <div class="shot-grid">
       <div class="shot-card">
+        <img id="shot1img" alt="Rainbow Plan from Alignment dialog">
         <div class="cap">Rainbow Plan — color-coded utility offsets from an alignment</div>
       </div>
       <div class="shot-card">
+        <img id="shot2img" alt="Batch Profile Views dialog">
         <div class="cap">Batch Profile Views — grid-driven setup across many alignments</div>
       </div>
     </div>
@@ -157,6 +159,16 @@ footer.site-footer{padding:26px 0;color:var(--text-faint);font-size:13px;}
     <span>Amr Moussa &middot; <a href="mailto:eng.amr.mo.moussa@gmail.com">eng.amr.mo.moussa@gmail.com</a></span>
   </div>
 </footer>
+
+<script>
+function loadShot(id, file) {
+  fetch(file).then(function(r){ return r.text(); }).then(function(b64){
+    document.getElementById(id).src = 'data:image/jpeg;base64,' + b64.trim();
+  });
+}
+loadShot('shot1img', 'assets/shot1.b64');
+loadShot('shot2img', 'assets/shot2.b64');
+</script>
 
 </body>
 </html>
